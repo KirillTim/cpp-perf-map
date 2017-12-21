@@ -125,11 +125,11 @@ jvmtiError load_previous_events(jvmtiEnv *jvmti) {
 }
 
 static void agent_main(JavaVM *vm, char *options, void *reserved) {
-    log_file.open(my_formatter("/tmp/perf-%d.new.log", getpid()));
+    log_file.open(my_formatter("/tmp/perf-%d.new.log", getpid()).c_str());
     log_file << "agent_main" << endl;
     cerr << "agent_main" << endl;
     string method_map_filename = my_formatter("/tmp/perf-%d.map.new", getpid());
-    methods_map_file.open(method_map_filename);
+    methods_map_file.open(method_map_filename.c_str());
     if (!methods_map_file.is_open()) {
         log_file << "can't open " << method_map_filename << endl;
         return;
