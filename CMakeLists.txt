@@ -3,6 +3,8 @@ project(perf-map-agent)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+
 include_directories(src)
 
 find_package(JNI)
